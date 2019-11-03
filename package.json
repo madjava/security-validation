@@ -1,0 +1,32 @@
+{
+  "name": "security-validation",
+  "version": "1.0.0",
+  "engines": {
+    "node": "11.8.0"
+  },
+  "description": "Using express validator and other tools to protect web services and prevent potential secrity breaches",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madjava/security-validation.git"
+  },
+  "author": "Felix E. Eyetan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/madjava/security-validation/issues"
+  },
+  "homepage": "https://github.com/madjava/security-validation#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "express-validator": "^6.2.0",
+    "helmet": "^3.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
