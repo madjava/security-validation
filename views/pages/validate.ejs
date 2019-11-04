@@ -2,37 +2,70 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <% include ../partials/head %>
 </head>
+
 <body class="container">
 
-<header>
-    <% include ../partials/header %>
-</header>
+    <header>
+        <% include ../partials/header %>
+    </header>
 
-<main>
-<div class="row">
-    <div class="col-sm-12"><h1><%= title %></h1></div>
-    <div class="col-sm-8">    
-        <div class="jumbotron">
-            <p>Form examples here</p>
+    <main>
+        <div class="row">
+            <div class="col-sm-12">
+                <h1><%= title %></h1>
+            </div>
+            <div class="col-sm-8">
+                <div class="jumbotron">
+                    <form method="POST" action="/validate">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" aria-describedby="username"
+                                placeholder="Username" name="username">
+                            <small id="usernameHelp" class="form-text text-muted">Have a play with different permutations of usernames and passsword.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password"
+                                name="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="comfirmPassword">Confirm Password</label>
+                            <input type="password" class="form-control" id="comfirmPassword"
+                                placeholder="Confirm Password" name="confirmPassword">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+
+                </div>
+                <% if(errors) { %>
+                <div>
+                    <ul id="error-ul">
+                        <% errors.forEach(function(error){ %>
+                        <li class="text-danger"><%= error.msg %></li>
+                        <% }); %>
+                    </ul>
+                </div>
+                <% } %>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="well">
+                    <div><a href="#">Validation 2</a></div>
+                    <div><a href="#">Validation 3</a></div>
+                </div>
+            </div>
+
         </div>
-    </div>
+    </main>
 
-    <div class="col-sm-4">        
-        <div class="well">
-            <div><a href="#">Validation 2</a></div>
-            <div><a href="#">Validation 3</a></div>
-        </div>
-    </div>
-
-</div>
-</main>
-
-<footer>
-    <% include ../partials/footer %>
-</footer>
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
 
 </body>
+
 </html>

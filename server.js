@@ -23,13 +23,13 @@ app.get('/', function (req, res) {
 });
 
 app.get('/validate', (req, res) => {
-    res.render('pages/validate', { title: 'Form Validation' });
+    res.render('pages/validate', { title: 'Form Validation', errors: null });
 });
 
 app.post('/validate', validateUsernamePassword, (req, res) => {
     var errors = validationResult(req);
     if (!errors.isEmpty()) {
-        return res.status(400).json(errors.array());
+        return res.render('pages/validate', { title: 'Form Validation', errors: errors.array() });
     }
     res.sendStatus(200);
 });
