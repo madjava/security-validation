@@ -5,7 +5,7 @@ const { check, body, checkSchema} = require('express-validator');
  * Various validation middleware
  */
 
-const validateUsernamePassword = [
+const validateUsernamePassword = [ // More validation checks can be added
     check('username')
         .isLength({ min: 1 })
         .withMessage('Login field is required')
@@ -26,7 +26,7 @@ const validateUsernamePassword = [
 ];
 
 
-const validateExpectedInput = [
+const validateExpectedInput = [ // More validation checks can be added
     check('expected')
         .not()
         .isArray()
@@ -35,9 +35,9 @@ const validateExpectedInput = [
         .withMessage('Must be a string value')
         .isLength({ min: 1 })
         .withMessage('A value is expected')
-]
+];
 
-const validatePayload = [
+const validatePayload = [ // More validation checks can be added
     checkSchema({
         firstname: {
             in:['body'],
@@ -52,7 +52,7 @@ const validatePayload = [
             toString: true
         }
     })
-]
+];
 
 module.exports = {
     validateUsernamePassword,
