@@ -2,29 +2,64 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <% include ../partials/head %>
 </head>
+
 <body class="container">
 
-<header>
-    <% include ../partials/header %>
-</header>
+    <header>
+        <% include ../partials/header %>
+    </header>
 
-<main>
-<div class="row">
-    <div class="col-sm-12">    
-        <div>
-            API examples here
+    <main>
+        <div class="row">
+            <div class="col-sm-8">
+                <div>
+                    There are various ways a server can be brough down if user input are not properly validated asn
+                    sanitized.
+                    <hr>
+                    <ul>
+                        <li>
+                            <div>
+                                <strong>API expects:</strong><br> A string value and performs operations based on that
+                                assumption. If something else is passed in, the service may crash.<br><br>
+                                e.g: <code>http://localhost:3000/api/expected=stringvalues</code>
+                                <div>Somewhere in the code application does req.query.expected.toUpperCase()</div>
+                                <strong>API receives:</strong><br> A value that gets coersed into somthing else
+                                e.g: <code>http://localhost:3000/api/expected[]=stringvalues</code>
+                            </div>
+                            <hr>
+                            <strong>Step 1.</strong> Open Postman<br>
+                            Try:
+                            <code>http://localhost:3000/api/malicious?expected=Felix Eyetan</code><br>
+                            You should see no error messages, 500 TypeError.
+                            <br>
+                            <br>
+                            Try: <code>http://localhost:3000/api/malicious?expected[]=Felix Eyetan</code><br>
+                            You should see some error messages.<br><br>
+                            <strong>Step 2.</strong> Open Postman<br>
+                            Try: <code>http://localhost:3000/api/malicious/fixed?expected[]=Felix Eyetan</code><br>
+                            You should see some custom 404 error messages indicating that we have handled the situation
+                            and the server didn't have to throw a 500 error.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="well">
+                    <div><a href="/api/pollution">JSON Pollution</a></div>
+                    <div><a href="/api/encoding">Encoding Input</a></div>
+                </div>
+            </div>
         </div>
-    </div>
+    </main>
 
-</div>
-</main>
-
-<footer>
-    <% include ../partials/footer %>
-</footer>
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
 
 </body>
+
 </html>

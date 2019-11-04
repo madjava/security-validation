@@ -1,0 +1,53 @@
+<!-- views/pages/about.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <% include ../partials/head %>
+</head>
+
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <div class="row">
+            <div class="col-sm-8">
+                <div>
+                   Some API's expect some JSON payload. If this payload is poluted by a user, it can cause the server to crash or throw unexpected errors.
+                   <br><br>
+                   An API that creates users expects <code>{"firstname":"Felix", "lastname": "Eyetan"}</code> and concatenates these two to form a fullname.
+                   <br><br>
+                   If <code>{"firstname":"Felix", "lastname": {"toString": 0}}</code></code> is sent maliciously, this could have negetive effect.
+                   <br><br>
+                   Open Postman,
+                   Try: POST to <code>http://localhost:3000/api/pollution</code><br> with payload
+                   <code>{"firstname":"Felix", "lastname": "Eyetan"}</code><br>
+                   Response should be "Felix Eyetan" <br><br>
+                   Try: POST to <code>http://localhost:3000/api/pollution</code><br> with payload
+                   <code>{"firstname":"Felix", "lastname": {"toString": 0}}</code><br>
+                   Response should be a server error <br><br>
+                   Try: POST to <code>http://localhost:3000/api/pollution/fixed</code><br> with payload
+                   <code>{"firstname":"Felix", "lastname": {"toString": 0}}</code><br>
+                   Response should be a 404 error indicating that we have handled the situation <br><br>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="well">
+                    <div><a href="/api">Malicious</a></div>
+                    <div><a href="/api/encoding">Encoding Input</a></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+
+</html>
