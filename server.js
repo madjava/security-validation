@@ -40,7 +40,7 @@ app.post('/validate', validateUsernamePassword, (req, res) => {
 app.get('/api', (req, res) => {
     res.render('pages/api', { title: 'Validating: Requests' });
 });
-app.get('/api/polution', (req, res) => {
+app.get('/api/pollution', (req, res) => {
     res.render('pages/api-2', { title: 'Validating: JSON' });
 });
 app.get('/api/encoding', (req, res) => {
