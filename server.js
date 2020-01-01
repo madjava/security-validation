@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const csrfProtection = require('@authentication/csrf-protection');
 const bodyParser = require('body-parser');
 const { validationResult } = require('express-validator');
 const { validateUsernamePassword, validateExpectedInput, validatePayload } = require('./api-validations');
@@ -14,6 +15,9 @@ app.set('view engine', 'ejs');
 
 // Use Helmet as early as possible
 app.use(helmet());
+
+// Protect against CSRF
+app.use(csrfProtection());
 
 // Use for processing url-encoded inputs 
 app.use(bodyParser.urlencoded({ extended: false }));
