@@ -30,7 +30,7 @@
     "helmet": "^3.21.2"
   },
   "devDependencies": {
-    "auditjs": "^3.2.4",
+    "auditjs": "^4.0.39",
     "nodemon": "^1.19.4"
   }
 }
