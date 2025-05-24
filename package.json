@@ -2,7 +2,7 @@
   "name": "security-validation",
   "version": "1.0.0",
   "engines": {
-    "node": "11.8.0"
+    "node": "11.15.0"
   },
   "description": "Using express validator and other tools to protect web services and prevent potential secrity breaches",
   "main": "server.js",
