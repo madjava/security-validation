@@ -23,14 +23,14 @@
   "homepage": "https://github.com/madjava/security-validation#readme",
   "dependencies": {
     "@authentication/csrf-protection": "0.0.3",
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.4",
     "ejs": "^3.0.0",
-    "express": "^4.17.1",
+    "express": "^4.22.1",
     "express-validator": "^6.2.0",
     "helmet": "^3.21.2"
   },
   "devDependencies": {
-    "auditjs": "^3.2.4",
+    "auditjs": "^4.2.0",
     "nodemon": "^1.19.4"
   }
 }
